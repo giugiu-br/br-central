@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BR Central • War Era</title>
+
+  <!-- Fonte do site -->
+  <link href="https://fonts.googleapis.com/css2?family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Visual: tudo fica em css/style.css -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!--
+    ESTE ARQUIVO É SÓ A ESTRUTURA DA PÁGINA.
+    - Os botões de tema e os cards são desenhados pelo js/app.js
+    - Os textos vêm de data/config.js, data/artigos.js e data/videos.js
+    Para adicionar conteúdo, NÃO mexa aqui (veja docs/COMO-ADICIONAR.md).
+  -->
+
+  <!-- Cabeçalho -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-flag">🇧🇷</div>
+        <div class="brand-text">
+          <h1>BR CENTRAL</h1>
+          <span>Comunidade Brasileira • War Era</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Abas principais: o app.js troca o painel ao clicar -->
+  <div class="main-tabs">
+    <button class="main-tab active" data-panel="artigos">📄 Artigos</button>
+    <button class="main-tab" data-panel="videos">🎬 Vídeos</button>
+  </div>
+
+  <div class="content-wrapper">
+
+    <!-- Painel de artigos -->
+    <div id="panel-artigos" class="panel active">
+      <!-- Botões de tema (preenchidos pelo app.js a partir de config.js) -->
+      <div class="theme-tabs" id="artigos-themes"></div>
+      <!-- Cards (preenchidos pelo app.js a partir de artigos.js) -->
+      <div class="cards-grid" id="artigos-grid"></div>
+    </div>
+
+    <!-- Painel de vídeos -->
+    <div id="panel-videos" class="panel">
+      <!-- Botões de tema (preenchidos pelo app.js a partir de config.js) -->
+      <div class="theme-tabs" id="videos-themes"></div>
+      <!-- Cards (preenchidos pelo app.js a partir de videos.js + videos-auto.js) -->
+      <div class="cards-grid" id="videos-grid"></div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p><span>BR Central</span> • Conteúdo da comunidade brasileira no War Era</p>
+  </footer>
+
+  <!--
+    Ordem dos scripts IMPORTA: primeiro os dados, por último a lógica.
+    Se um arquivo ainda não existir, o navegador mostra erro no console (F12).
+  -->
+  <script src="data/config.js"></script>
+  <script src="data/artigos.js"></script>
+  <script src="data/videos.js"></script>
+  <script src="data/videos-auto.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
