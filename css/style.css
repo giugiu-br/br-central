@@ -1,0 +1,369 @@
+/* ============================================
+   BR CENTRAL • War Era — css/style.css
+   Só o visual. Conteúdo fica em data/*.js
+   ============================================ */
+
+:root {
+  /* Base escura, inspirada no visual do app War Era */
+  --bg: #0d0f12;
+  --bg-elevated: #151a1e;
+  --card: #1a1f24;
+  --border: #2a3038;
+
+  /* Cores da bandeira como destaque */
+  --green: #009c3b;
+  --yellow: #ffdf00;
+  --blue: #002776;
+  --red-accent: #c41e3a;
+  --text: #e8eaed;
+  --text-muted: #9aa0a6;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Saira', system-ui, sans-serif;
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+/* ========== CABEÇALHO ========== */
+
+header {
+  background: linear-gradient(180deg, #0a0c0e 0%, #12161a 100%);
+  border-bottom: 3px solid var(--green);
+  padding: 1.25rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand-flag {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.brand-text h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+}
+
+.brand-text span {
+  font-size: 0.8rem;
+  color: var(--yellow);
+  font-weight: 500;
+}
+
+.header-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+}
+
+/* ========== ABAS PRINCIPAIS (Artigos / Vídeos) ========== */
+
+.main-tabs {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.main-tab {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px 8px 0 0;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  top: 1px;
+}
+
+.main-tab:hover {
+  color: var(--text);
+  border-color: #3a424c;
+}
+
+.main-tab.active {
+  background: var(--bg-elevated);
+  color: var(--white);
+  border-color: var(--border);
+  border-bottom-color: var(--bg-elevated);
+}
+
+/* Barra verde em cima da aba ativa */
+.main-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--green);
+}
+
+/* ========== ÁREA DE CONTEÚDO ========== */
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+.panel {
+  display: none;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 0 12px 12px 12px;
+  padding: 1.5rem;
+  min-height: 520px;
+}
+
+.panel.active {
+  display: block;
+}
+
+/* ========== SUB-ABAS DE TEMA ========== */
+
+.theme-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.theme-tab {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.theme-tab:hover {
+  border-color: #4a5560;
+  color: var(--text);
+}
+
+.theme-tab.active {
+  background: rgba(0, 156, 59, 0.15);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* ========== GRADE DE CARDS ========== */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.15rem;
+  transition: border-color 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.card:hover {
+  border-color: #3d4650;
+  transform: translateY(-2px);
+}
+
+/* Selo colorido do tema */
+.card-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.tag-militar    { background: rgba(196, 30, 58, 0.2);  color: #ff6b81; }
+.tag-economia   { background: rgba(255, 223, 0, 0.12); color: var(--yellow); }
+.tag-politica   { background: rgba(0, 39, 118, 0.35);  color: #7eb8ff; }
+.tag-regras     { background: rgba(0, 156, 59, 0.15);  color: #5ddea0; }
+.tag-comunidade { background: rgba(255, 255, 255, 0.08); color: #c5c9ce; }
+
+.card h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.35;
+}
+
+.card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  flex-grow: 1;
+}
+
+.card-meta {
+  font-size: 0.75rem;
+  color: #6b7280;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.3rem;
+}
+
+.card a {
+  color: var(--yellow);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+/* ========== CARDS DE VÍDEO (YouTube) ========== */
+
+.video-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.video-card:hover {
+  border-color: #3d4650;
+  transform: translateY(-2px);
+}
+
+.video-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0a0c0e;
+}
+
+.video-thumb iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-info {
+  padding: 1rem;
+}
+
+.video-info h3 {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.4rem;
+}
+
+.video-info p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* ========== MENSAGEM DE FILTRO VAZIO ========== */
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.empty-state strong {
+  color: var(--text);
+}
+
+/* ========== RODAPÉ ========== */
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  margin-top: 1rem;
+}
+
+footer span {
+  color: var(--green);
+}
+
+/* ========== CELULAR ========== */
+
+@media (max-width: 640px) {
+  .main-tabs {
+    padding: 1rem 1rem 0;
+  }
+
+  .main-tab {
+    flex: 1;
+    text-align: center;
+    padding: 0.65rem 0.5rem;
+    font-size: 0.88rem;
+  }
+
+  .content-wrapper {
+    padding: 0 1rem 2rem;
+  }
+
+  .panel {
+    padding: 1rem;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .header-note {
+    display: none;
+  }
+}
