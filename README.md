@@ -10,7 +10,7 @@ Não precisa saber programar para ajudar. Se você sabe copiar e colar texto no 
 
 O site fica publicado pelo GitHub Pages neste endereço:
 
-`[https://giugiu-br.github.io/br-central/](https://giugiu-br.github.io/br-central/index)`
+[https://giugiu-br.github.io/br-central/](https://giugiu-br.github.io/br-central/index)
 
 ---
 
