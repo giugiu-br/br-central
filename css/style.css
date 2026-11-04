@@ -18,6 +18,9 @@
   --text: #e8eaed;
   --text-muted: #9aa0a6;
   --white: #ffffff;
+  --orange: #ff8a1f;      /* Tutoriais */
+  --blue-light: #4a86ff;  /* Comunidade (o azul #002776 some no fundo escuro) */
+   
 }
 
 * {
@@ -186,10 +189,41 @@ header {
   color: var(--text);
 }
 
-.theme-tab.active {
+/* Aba de tema ativa: a cor depende do atributo data-theme do botão */
+.theme-tab.active {                       /* Todos: verde */
   background: rgba(0, 156, 59, 0.15);
   border-color: var(--green);
   color: var(--green);
+}
+
+.theme-tab.active[data-theme="militar"] {     /* vermelho */
+  background: rgba(196, 30, 58, 0.2);
+  border-color: #ff6b81;
+  color: #ff6b81;
+}
+
+.theme-tab.active[data-theme="economia"] {    /* amarelo */
+  background: rgba(255, 223, 0, 0.12);
+  border-color: var(--yellow);
+  color: var(--yellow);
+}
+
+.theme-tab.active[data-theme="politica"] {    /* branco */
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.theme-tab.active[data-theme="tutoriais"] {   /* laranja */
+  background: rgba(255, 138, 31, 0.15);
+  border-color: var(--orange);
+  color: var(--orange);
+}
+
+.theme-tab.active[data-theme="comunidade"] {  /* azul */
+  background: rgba(0, 39, 118, 0.45);
+  border-color: var(--blue-light);
+  color: var(--blue-light);
 }
 
 /* ========== GRADE DE CARDS ========== */
@@ -230,9 +264,9 @@ header {
 
 .tag-militar    { background: rgba(196, 30, 58, 0.2);  color: #ff6b81; }
 .tag-economia   { background: rgba(255, 223, 0, 0.12); color: var(--yellow); }
-.tag-politica   { background: rgba(0, 39, 118, 0.35);  color: #7eb8ff; }
-.tag-regras     { background: rgba(0, 156, 59, 0.15);  color: #5ddea0; }
-.tag-comunidade { background: rgba(255, 255, 255, 0.08); color: #c5c9ce; }
+.tag-politica   { background: rgba(255, 255, 255, 0.12); color: var(--white); }
+.tag-tutoriais  { background: rgba(255, 138, 31, 0.15);  color: var(--orange); }
+.tag-comunidade { background: rgba(0, 39, 118, 0.45);    color: var(--blue-light); }
 
 .card h3 {
   font-size: 1.05rem;
@@ -265,6 +299,18 @@ header {
 
 .card a:hover {
   text-decoration: underline;
+}
+
+/* Nome do autor/jogador como link para o perfil no jogo */
+.card a.autor-link {
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: inherit;
+  text-decoration: underline dotted;
+}
+
+.card a.autor-link:hover {
+  color: var(--yellow);
 }
 
 /* ========== CARDS DE VÍDEO (YouTube) ========== */
