@@ -66,7 +66,20 @@ function criarCardArtigo(artigo) {
   card.appendChild(criar('p', '', artigo.resumo));
 
   const meta = criar('div', 'card-meta');
-  meta.appendChild(criar('span', '', `${artigo.autor} • ${formatarData(artigo.data)}`));
+  
+  // Autor: vira link para o perfil no jogo quando existir o campo autorUrl
+  const autorEData = criar('span');
+  if (artigo.autorUrl) {
+    const linkAutor = criar('a', '', artigo.autor);
+    linkAutor.href = artigo.autorUrl;
+    linkAutor.target = '_blank';
+    linkAutor.rel = 'noopener';
+    autorEData.appendChild(linkAutor);
+  } else {
+    autorEData.appendChild(document.createTextNode(artigo.autor));
+  }
+  autorEData.appendChild(document.createTextNode(` • ${formatarData(artigo.data)}`));
+  meta.appendChild(autorEData);
 
   // Link principal: "link" abre a url; "backup" e "original" abrem o arquivo .md
   const destino = artigo.tipo === 'link' ? artigo.url : artigo.arquivo;
@@ -158,6 +171,9 @@ function montarTemas(aba) {
   nomes.forEach((nome) => {
     const botao = criar('button', 'theme-tab', nome === 'todos' ? 'Todos' : nome);
     if (nome === 'todos') botao.classList.add('active');
+    // Cada botão recebe sua cor (vem de config.js); o CSS usa --cor
+    const cor = nome === 'todos' ? (config.corTodos || '#009c3b') : acharTema(nome).cor;
+    botao.style.setProperty('--cor', cor);
     botao.addEventListener('click', () => {
       caixa.querySelectorAll('.theme-tab').forEach((b) => b.classList.toggle('active', b === botao));
       desenhar(aba, nome);
