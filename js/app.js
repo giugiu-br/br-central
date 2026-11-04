@@ -171,6 +171,9 @@ function montarTemas(aba) {
   nomes.forEach((nome) => {
     const botao = criar('button', 'theme-tab', nome === 'todos' ? 'Todos' : nome);
     if (nome === 'todos') botao.classList.add('active');
+    // Marca o botão com o nome do tema sem acento e em minúsculas (ex.: "Política" -> "politica").
+    // O CSS usa esse atributo para pintar o botão ativo com a cor do tema.
+    botao.dataset.theme = nome.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     // Cada botão recebe sua cor (vem de config.js); o CSS usa --cor
     const cor = nome === 'todos' ? (config.corTodos || '#009c3b') : acharTema(nome).cor;
     botao.style.setProperty('--cor', cor);
