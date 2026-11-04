@@ -27,15 +27,21 @@ const CONFIG = {
     textoSuave: "#9aa0a6"
   },
 
+  // ---------- Botão "Todos" ----------
+  // Não é um tema de conteúdo, só o botão que mostra tudo.
+  todos: { nome: "Todos", cor: "#009c3b", fundo: "rgba(0, 156, 59, 0.15)", texto: "#5ddea0" },
+
   // ---------- Temas ----------
   // O campo "tema" em artigos.js e videos.js deve ser IGUAL ao "nome" daqui.
-  // "fundo" e "texto" são as cores do selo (tag) do tema no card.
+  // cor   = cor forte do botão (borda e botão ativo)
+  // fundo = cor suave de fundo do selo (tag) no card
+  // texto = cor do texto do selo (clara o bastante para ler no fundo escuro)
   temas: [
-    { nome: "Militar",    fundo: "rgba(196, 30, 58, 0.2)",  texto: "#ff6b81" },
-    { nome: "Economia",   fundo: "rgba(255, 223, 0, 0.12)", texto: "#ffdf00" },
-    { nome: "Política",   fundo: "rgba(0, 39, 118, 0.35)",  texto: "#7eb8ff" },
-    { nome: "Regras",     fundo: "rgba(0, 156, 59, 0.15)",  texto: "#5ddea0" },
-    { nome: "Comunidade", fundo: "rgba(255, 255, 255, 0.08)", texto: "#c5c9ce" }
+    { nome: "Militar",    cor: "#c41e3a", fundo: "rgba(196, 30, 58, 0.2)",    texto: "#ff6b81" }, // vermelho
+    { nome: "Economia",   cor: "#ffdf00", fundo: "rgba(255, 223, 0, 0.12)",   texto: "#ffdf00" }, // amarelo-Brasil
+    { nome: "Política",   cor: "#ffffff", fundo: "rgba(255, 255, 255, 0.12)", texto: "#ffffff" }, // branco
+    { nome: "Tutoriais",  cor: "#ff8a1f", fundo: "rgba(255, 138, 31, 0.15)",  texto: "#ffa94d" }, // laranja
+    { nome: "Comunidade", cor: "#002776", fundo: "rgba(0, 39, 118, 0.35)",    texto: "#7eb8ff" }  // azul-Brasil
   ],
 
   // ---------- Tipos de artigo (selos) ----------
