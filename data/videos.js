@@ -30,4 +30,14 @@
 
 const VIDEOS = [
   // Os vídeos entram aqui.
+
+  {
+    id: "Teste",
+    titulo: "Teste",
+    canal: "Nome do canal",
+    data: "2026-11-02",
+    tema: "Comunidade",
+    url: "https://youtu.be/dQw4w9WgXcQ?si=VgmnQp2iR4H5if_v",
+    resumo: "Uma frase opcional."
+  },
 ];
