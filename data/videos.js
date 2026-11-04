@@ -11,7 +11,7 @@
 //   titulo  → título que aparece no card
 //   canal   → nome do canal
 //   data    → AAAA-MM-DD
-//   tema    → Militar | Economia | Política | Regras | Comunidade
+//   tema    → Militar | Economia | Política | Tutoriais | Comunidade
 //   url     → link completo do vídeo
 //   resumo  → uma frase (opcional)
 //
